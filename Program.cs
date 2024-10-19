@@ -43,10 +43,13 @@ public class FirstSelenium
         try
         {
             driver.FindElement(By.CssSelector(".wp-block-button__link")).Click();
+            test.Log(Status.Pass, "Login Successfully");
         }
         catch
         {
             Console.WriteLine("Failed Login");
+            test.Log(Status.Fail, "Login Fail");
+
         }
 
 
@@ -59,7 +62,7 @@ public class FirstSelenium
     }
     private static void CreateReportDirectories()
     {
-        string ReportPath = @"C:\Report_location2\";
+        string ReportPath = @"C:\Report_location2\Report" +DateTime.Now.ToString("_MMddyyyy_hhmmtt") +".html";
         if (!Directory.Exists(ReportPath))
         {
             Directory.CreateDirectory(ReportPath);
