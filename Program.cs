@@ -2,15 +2,19 @@ using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Drawing.Text;
 public class FirstSelenium
 {
     static void Main()
     {
+        CreateReportDirectories();
         IWebDriver driver = new ChromeDriver();
 
         ExtentReports extentReports = new ExtentReports();
 
-        ExtentSparkReporter reportpath= new ExtentSparkReporter(@"C:\Report_location\Report.html");
+        ExtentSparkReporter reportpath= new ExtentSparkReporter(@"C:\Report_location\Report" +DateTime.Now.ToString("_MMddyyyy_hhmmtt") +".html");
+
+        
 
         extentReports.AttachReporter(reportpath);
 
@@ -44,5 +48,17 @@ public class FirstSelenium
         driver.Quit();
         extentReports.Flush();
 
+
+
+        
     }
+    private static void CreateReportDirectories()
+    {
+        string ReportPath = @"C:\Report_location2\";
+        if (!Directory.Exists(ReportPath))
+        {
+            Directory.CreateDirectory(ReportPath);
+        }
+    }
+
 }
