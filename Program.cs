@@ -28,7 +28,7 @@ public class FirstSelenium
         Console.WriteLine("Browser Maximize");
         test.Log(Status.Info, "Browser maximize");
 
-        driver.FindElement(By.Id("username")).SendKeys("students");
+        driver.FindElement(By.Id("username")).SendKeys("student");
         Console.WriteLine("Provide username");
         test.Log(Status.Info, "Provide username");
 
